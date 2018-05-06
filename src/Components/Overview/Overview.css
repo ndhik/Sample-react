@@ -1,0 +1,32 @@
+.Overview {
+  padding: 1rem 0;
+  display: flex;
+}
+
+.Overview .BarContainer {
+  position: relative;
+  border-radius: 1rem;
+  background: #ccc;
+  height: 1rem;
+  flex: 1 0 auto;
+  overflow: hidden;
+}
+
+.Overview .BarFiller {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 1rem;
+}
+
+.Overview .BarFiller.Front {
+  background: orangered;
+  transition: all 400ms 500ms ease-out;
+}
+
+.Overview .BarFiller.Back {
+  background: orangered;
+  opacity: .5;
+  transition: all 500ms ease-out;
+}

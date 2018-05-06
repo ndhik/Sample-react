@@ -12,17 +12,27 @@ class Form extends Component {
 
   onSave = () => {
     if (this.state.newContent) {
-      this.props.save({ id: Math.floor(Math.random() * 1000), content: this.state.newContent, completed: false });
+      this.props.save({ id: Math.floor(Math.random() * 1000), content: this.state.newContent, completed: false, createdAt: new Date().toISOString() });
       this.setState({ newContent: '' });
+    }
+  }
+
+  onEnter = (keyCode) => {
+    if (keyCode === 13) {
+      this.onSave();
     }
   }
 
   render () {
     return (
       <div className="Form">
-        <span>I will </span>
-        <input type="text" placeholder="learn React JS" value={this.state.newContent} onChange={(event) => this.updateContent(event)}/>
-        <button className="Button" onClick={() => this.onSave()}>later</button>
+        <div className="Row">
+          <span>I will </span>
+          <input type="text" placeholder="learn React JS" onKeyPress={(event) => this.onEnter(event.which)} value={this.state.newContent} onChange={(event) => this.updateContent(event)}/>
+        </div>
+        <div className="Row">
+          <small>Press enter to save</small>
+        </div>
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Form from './Components/Form/Form';
 import TaskList from './Components/TaskList/TaskList';
+import Overview from './Components/Overview/Overview';
 import './App.css';
 
 class App extends Component {
@@ -38,9 +39,14 @@ class App extends Component {
   }
 
   render() {
+    const total = this.state.tasks.length;
+    const open = this.state.tasks.filter(task => task.completed === false);
+    const closed = this.state.tasks.filter(task => task.completed === true);
+    console.log(total + ' ' + open.length + ' ' + closed.length);
     return (
       <div className="App">
         <Form save={(event) => this.addTaskHandler(event)}/>
+        <Overview total={total} open={open.length} closed={closed.length}/>
         <TaskList tasks={this.state.tasks} delete={(id) => this.deleteTaskHandler(id)} done={(id) => this.completeTaskHandler(id)}/>
       </div>
     );

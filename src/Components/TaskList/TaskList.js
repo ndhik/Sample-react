@@ -1,4 +1,5 @@
 import React from 'react';
+import Moment from 'react-moment';
 import './TaskList.css';
 
 const tasklist = (props) => {
@@ -12,7 +13,7 @@ const tasklist = (props) => {
         }
         return (
           <div className={classes.join(' ')} key={task.id}>
-            <span className="Content">{ 'I will ' + task.content}</span>
+            <span className="Content">{ 'I would ' + task.content} { task.createdAt ? (<Moment fromNow>{task.createdAt}</Moment>) : null}</span>
             { task.completed ? 
               null :
                 <div className="Actions">

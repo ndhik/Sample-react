@@ -1,10 +1,15 @@
 .Form {
   display: flex;
+  flex-direction: column;
   margin: 5.063em 0;
+}
+
+.Row {
+  display: flex;
   align-items: baseline;
 }
 
-.Form > * {
+.Row > * {
   font-size: 2.25rem;
   font-weight: 600;
   opacity: .8;
@@ -14,18 +19,28 @@
   flex: 0 1 auto;
 }
 
-.Form span::after {
+.Form span:first-child::after {
+  content: ' ';
+  display: inline-block;
+}
+.Form span:last-child::before {
   content: ' ';
   display: inline-block;
 }
 
 .Form input {
-  flex: 1 0 auto;
+  flex: 1 1 auto;
   border: none;
 }
 
 .Form input:focus {
   outline: none;
+}
+
+.Form small {
+  font-size: 12px;
+  font-weight: 200;
+  opacity: .3;
 }
 
 .Form .Button {
