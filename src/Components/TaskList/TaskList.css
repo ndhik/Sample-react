@@ -44,3 +44,8 @@
   opacity: .5;
   text-decoration: line-through;
 }
+.Empty {
+  font-weight: 600;
+  color: #888;
+  padding: 1rem 0;
+}

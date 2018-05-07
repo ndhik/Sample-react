@@ -5,9 +5,8 @@ import './TaskList.css';
 const tasklist = (props) => {
   return (
     <div className="TaskList">
-      {props.tasks.map(task => {
+      { props.tasks.length > 0 ? props.tasks.map(task => {
         const classes = ['Task'];
-        console.log(task);
         if (task.completed) {
           classes.push('Done')
         }
@@ -23,7 +22,8 @@ const tasklist = (props) => {
             }
           </div>
         )
-      })}
+      }) : 
+      <div className="Empty">Add new task</div> }
     </div>
   );
 }
