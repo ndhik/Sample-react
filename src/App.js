@@ -56,10 +56,6 @@ class App extends Component {
   }
 
   deleteTaskHandler = (id) => {
-    // const tasks = [...this.state.tasks];
-    // const taskIndex = tasks.findIndex(task => task.id === id);
-    // tasks.splice(taskIndex, 1);
-    // this.setState({ tasks: tasks });
     fetch(`${this.state.URL}/${id}`, {
       method: 'DELETE',
       headers: {
@@ -75,12 +71,6 @@ class App extends Component {
   }
 
   completeTaskHandler = (id) => {
-    // const taskIndex = this.state.tasks.findIndex(task => task.id === id);
-    // const task = {...this.state.tasks[taskIndex]};
-    // task.completed = true;
-    // const tasks = [...this.state.tasks];
-    // tasks[taskIndex] = task;
-    // this.setState({ tasks: tasks });
     const updatedTask = {...this.state.tasks.find(task => task.id === id)};
     updatedTask.completed = true;
     console.log(updatedTask);

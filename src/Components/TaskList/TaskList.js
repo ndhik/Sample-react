@@ -20,6 +20,9 @@ const tasklist = (props) => {
                   <button className="Button" onClick={(id) => props.delete(task.id)}>Nevermind</button>
                 </div>
             }
+            { task.completed.length > 0 ? 
+              <div>waw</div> : null
+            }
           </div>
         )
       }) : 
